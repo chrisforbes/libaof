@@ -10,6 +10,9 @@ extern "C" {
 #else
 #define AOFEXPORT __declspec( dllimport )
 #endif
+#else
+	/* POSIX */
+#define AOFEXPORT 
 #endif
 
 	/* drs interface */

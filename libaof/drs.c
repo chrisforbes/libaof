@@ -54,6 +54,8 @@ void drs_close( struct aof_drs * drs )
 #else
 /* POSIX version*/
 
+#define PAGE_SIZE 4096
+
 struct aof_drs * drs_open( char const * filename )
 {
 	struct aof_drs * drs = malloc( sizeof( *drs ) );
