@@ -4,10 +4,12 @@
 extern "C" {
 #endif
 
+#ifdef WIN32
 #ifdef LIBAOF_EXPORTS
 #define AOFEXPORT __declspec( dllexport )
 #else
 #define AOFEXPORT __declspec( dllimport )
+#endif
 #endif
 
 	/* drs interface */

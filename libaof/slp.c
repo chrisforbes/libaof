@@ -1,4 +1,3 @@
-#include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -139,11 +138,8 @@ static unsigned char const * render_row( unsigned char * dest,
 void slp_render( void const * slp, int frame, int player, unsigned char * p, int stride, int x, int y )
 {
 	struct slp_frame_info const * f = get_frame( slp, frame );
-	unsigned char const * base = (unsigned char const *)
-		slp;
-	//	get_frame( slp, slp_frames( slp ) );	/* ptr past end */
-
-	unsigned const * q = base + f->cmd_table_offset;
+	unsigned char const * base = (unsigned char const *)slp;
+	unsigned const * q = (unsigned const *)(base + f->cmd_table_offset);
 	struct slp_row const * row = (struct slp_row const *)
 		(base + f->outline_table_offset);
 	unsigned char * dest = p + (x - f->hsx) + stride * (y - f->hsy);

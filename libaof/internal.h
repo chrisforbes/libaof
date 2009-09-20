@@ -1,13 +1,18 @@
 #pragma once
 
-#ifndef LIBAOF_EXPORTS
-#error This file is for the internal use of libaof only - use the interface in libaof.h!
+#ifdef WIN32
+typedef void * HANDLE;
 #endif
 
 struct aof_drs
 {
+#ifdef WIN32
 	HANDLE hFile;
 	HANDLE hMapping;
+#else
+	int fd;
+#endif
+
 	void * base;
 	int size;
 };
